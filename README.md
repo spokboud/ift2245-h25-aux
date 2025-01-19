@@ -8,28 +8,24 @@
 
 ---
 
+|                         | `strace ./program 2>&1 \| grep -E 'read\|write'`                                                                                                         |
+|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `strace`                | Trace tous les **appels système** (e.g. `read`, `write`, `open`, etc.) effectués par le programme.                                                       |
+| `./program`             | Programme à exécuter et analyser.                                                                                                                        |
+| `2>&1`                  | Redirige le **flux d’erreurs** (`2`) vers la **sortie standard** (`1`). <br/> Le **`&`** indique la référence à un **descripteur de fichier** (ici `1`). |
+| `\|` (Pipe)             | Transfère la **sortie standard** de la commande précédente (après redirection) comme **entrée** de la commande suivante.                                 |
+| `grep -E 'read\|write'` | Filtre les lignes pour n’afficher que celles contenant **`read`** ou **`write`**, grâce à une **expression régulière étendue** (option `-E`).            |
+| Résultat                | Affiche uniquement les appels système `read` et `write` émis par `./program`|
 
-`strace ./program 2>&1 | grep -E 'read|write'`
-
-|||
-|--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `strace`                 | Trace tous les **appels système** (e.g. `read`, `write`, `open`, etc.) effectués par le programme.                                                       |
-| `./program`              | Programme à exécuter et analyser.                                                                                                                        |
-| `2>&1`                   | Redirige le **flux d’erreurs** (`2`) vers la **sortie standard** (`1`). <br/> Le **`&`** indique la référence à un **descripteur de fichier** (ici `1`). |
-| `|` (Pipe)               | Transfère la **sortie standard** de la commande précédente (après redirection) comme **entrée** de la commande suivante.                                 |
-| `grep -E 'read\|write'`  | Filtre les lignes pour n’afficher que celles contenant **`read`** ou **`write`**, grâce à une **expression régulière étendue** (option `-E`).            |
-
-**Résultat** : Affiche uniquement les appels système `read` et `write` émis par `./program`.
-
-
-|:---|---:|
-|Extra|https://overthewire.org/wargames/bandit/|
-|Extra|cat /usr/share/vim/vim91/tutor/tutor.fr.utf-8|
-|Extra|https://gcc.gnu.org/onlinedocs/gcc/Option-Summary.html|
-|Extra|https://waytolearnx.com/2018/08/qcm-linux-gestion-de-processus.html|
-|Extra|man glob.7|
-|Extra|man regex.7|
-|Extra|man man|
+| EXTRA HELP |                                                                     |
+|:-----------|--------------------------------------------------------------------:|
+| Extra      |                            https://overthewire.org/wargames/bandit/ |
+| Extra      |                       cat /usr/share/vim/vim91/tutor/tutor.fr.utf-8 |
+| Extra      |              https://gcc.gnu.org/onlinedocs/gcc/Option-Summary.html |
+| Extra      | https://waytolearnx.com/2018/08/qcm-linux-gestion-de-processus.html |
+| Extra      |                                                          man glob.7 |
+| Extra      |                                                         man regex.7 |
+| Extra      |                                                             man man |
 
 ### Update MAN
 ````
