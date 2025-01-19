@@ -1,0 +1,129 @@
+" Installation automatisée de Vim-plug
+" https://github.com/junegunn/vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Configuration de Vim-plug
+call plug#begin('~/.vim/plugged')
+    " Thèmes
+    Plug 'michalbachowski/vim-wombat256mod'
+    Plug 'crusoexia/vim-monokai'
+    Plug 'preocanin/greenwint'
+
+    " Configurations de base
+    Plug 'tpope/vim-sensible'
+
+   Plug 'https://github.com/guibdeux/emmet-vim.git'
+   Plug 'https://github.com/guibdeux/jslint.vim.git'
+   Plug 'https://github.com/guibdeux/surround.git'
+
+
+    " Commente/décommente des lignes
+    " (voir :help commentary)
+    Plug 'tpope/vim-commentary'
+
+    " Tampon d'accueil: accès simple aux fichiers récemments utilisés
+    " (voir :help startify)
+    Plug 'mhinz/vim-startify'
+
+    " Plusieurs raccourcis utiles
+    " (voir :help unimpaired)
+    Plug 'tpope/vim-unimpaired'
+
+    " Syntastic : analyse syntaxique (C, C++ et d'autres)
+    " (voir :help syntastic)
+    "Plug 'scrooloose/syntastic'
+    Plug 'dense-analysis/ale'
+
+    " Pandoc
+    "Plug 'vim-pandoc/vim-pandoc'
+    "Plug 'vim-pandoc/vim-pandoc-syntax'
+call plug#end()
+
+" Touche *leader*
+" http://learnvimscriptthehardway.stevelosh.com/chapters/06.html
+let mapleader=","
+
+" Coloration syntaxique
+syntax on
+
+" Copie-colle directement dans le presse-papier système
+set clipboard=unnamedplus
+
+" Activation de la souris
+set mouse=a
+
+" Thème de coloration syntaxique
+" La commande colorscheme peut engendrer des bugs avec certains thèmes comme
+" retirer la coloration syntaxique. Afin de prévenir cela, utiliser le conseil
+" suivant:
+" https://github.com/altercation/solarized/issues/102#issuecomment-275269574
+"
+" Les thèmes suivants sont aussi disponibles:
+" - wombat256mod
+" - monokai
+" - greenwint
+colorscheme monokai
+
+" Rechargement automatique des configurations après modification
+augroup vimrc
+    au!
+    au bufwritepost ~/.vim/vimrc source $MYVIMRC
+augroup END
+
+set formatoptions=tcroql
+set autochdir
+set encoding=utf-8
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set showmatch
+set autoindent
+set smarttab
+
+" Activation des numéros de ligne
+set number
+
+" Gestion de l'expansion des tabulations (en espaces)
+" (voir :help expandtab)
+set tabstop=4 | set shiftwidth=4 | set expandtab
+autocmd filetype bats set syntax=bash
+autocmd filetype make setlocal noexpandtab
+
+" Indicateur du dépassement de 101 caractères
+augroup collumnLimit
+  autocmd!
+  autocmd BufEnter,WinEnter,FileType cpp
+        \ highlight CollumnLimit ctermbg=Red guibg=Red
+  let collumnLimit = 100 " feel free to customize
+  let pattern =
+        \ '\%<' . (collumnLimit+1) . 'v.\%>' . collumnLimit . 'v'
+  autocmd BufEnter,WinEnter,FileType cpp
+        \ let w:m1=matchadd('CollumnLimit', pattern, -1)
+augroup END
+
+" Raccourcis pour appel du Makefile
+nnoremap <leader>m :!make<CR>
+nnoremap <leader>ma :!make all<CR><CR>
+nnoremap <leader>mt :!make test<CR>
+
+" Replis (de lignes)
+set foldmethod=indent
+set nofoldenable
+
+" Recherche et remplacement du terme surligné (mode visuel)
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+
+" Guillemets français
+imap <leader>g «»
+
+" Vérification orthographique
+nmap <silent> <leader>s :set spell!<CR>
+set spelllang=en_us,fr
+set number 
+"set relativenumber
+

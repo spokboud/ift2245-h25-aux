@@ -1,0 +1,6 @@
+[submodule "tps/1tp/Course-TP1-New"]
+	path = tps/1tp/Course-TP1-New
+	url = https://github.com/IFT2245/Course-TP1-New
+[submodule "tps/2tp/Course-TP2"]
+	path = tps/2tp/Course-TP2
+	url = https://github.com/IFT2245/Course-TP2

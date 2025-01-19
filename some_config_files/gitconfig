@@ -1,0 +1,30 @@
+[user]
+	name = yourname
+    username = yourusername
+	email = youremail
+[credential]    
+    helper = cache --timeout=10000
+    helper = store
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+[alias]
+	st = status -s
+	co = checkout
+	ci = commit
+	br = branch
+	gr = log --graph --full-history --all --color --pretty=tformat:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
+    #puff = pull --ff --ff-only
+	stats = shortlog -s -n --all
+[core]
+	precomposeunicode = true
+	editor = vim
+#[merge]
+    #ff = false
+    #tool = vimdiff
+    #conflictstyle = diff3
+    #promt = false
+[push]
+	default = simple
