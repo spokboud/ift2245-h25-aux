@@ -2,8 +2,6 @@
 # Cours de Systèmes d'Exploitation
 #### TP1-2_Processes-Threads-Ordonnancement-Synchronisation-Interblocage
 - [TP0](https://github.com/IFT2245/Course-TP0)  
-- [TP1](https://github.com/IFT2245/Course-TP1)  
-- [TP2](https://github.com/IFT2245/Course-TP2)
 
 `strace ./program 2>&1 | grep -E 'read|write'`
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
