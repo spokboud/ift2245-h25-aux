@@ -4,7 +4,10 @@
 #### Ce petit repo pourrait aider la comprehension de certaines theories.
 #### TP1-2_Processes-Threads-Ordonnancement-Synchronisation-Interblocage 
 #### --> Shayan & Blouin
-- [TP0](https://github.com/IFT2245/Course-TP0)  
+
+
+---
+
 
 `strace ./program 2>&1 | grep -E 'read|write'`
 
