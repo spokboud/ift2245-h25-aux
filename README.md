@@ -4,6 +4,8 @@
 - [TP0](https://github.com/IFT2245/Course-TP0)  
 
 `strace ./program 2>&1 | grep -E 'read|write'`
+
+|||
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `strace`                 | Trace tous les **appels système** (e.g. `read`, `write`, `open`, etc.) effectués par le programme.                                                       |
 | `./program`              | Programme à exécuter et analyser.                                                                                                                        |
