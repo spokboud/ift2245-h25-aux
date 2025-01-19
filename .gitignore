@@ -2,6 +2,7 @@
 *bin*
 *.mp4*
 *.mkv*
+*.idea*
 # Prerequisites
 *.d
 
