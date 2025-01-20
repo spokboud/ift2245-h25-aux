@@ -15,10 +15,8 @@ call plug#begin('~/.vim/plugged')
 
     " Configurations de base
     Plug 'tpope/vim-sensible'
+    Plug 'tpope/vim-vinegar'
 
-   Plug 'https://github.com/guibdeux/emmet-vim.git'
-   Plug 'https://github.com/guibdeux/jslint.vim.git'
-   Plug 'https://github.com/guibdeux/surround.git'
 
 
     " Commente/décommente des lignes
