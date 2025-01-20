@@ -3,6 +3,8 @@
 *.mp4*
 *.mkv*
 *.idea*
+*myBackUp*
+*.xopp*
 # Prerequisites
 *.d
 

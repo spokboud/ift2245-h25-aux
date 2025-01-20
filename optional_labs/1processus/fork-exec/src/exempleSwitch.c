@@ -7,7 +7,7 @@
 int main() {
     pid_t pid; int wStatus;
     printf("Je m'identifie le pere, pid: %d\n", getpid());
-    switch (pid = fork()) {
+    switch (pid = fork()) {q
         case -1: // error code
             perror("fork error: ");
             return EXIT_FAILURE;
