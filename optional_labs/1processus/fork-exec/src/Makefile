@@ -13,7 +13,7 @@ CC=gcc
 # OBJ=$(SRC:.c=.o)
 # all: $(EXEC)
 
-all: exec0 execAvecChemin execvp0 getChar miseEnBouche mystere exec0fin exec5 multipleFils mystereGraphviz exempleGuibSwitch backup
+all: exec0 execAvecChemin execvp0 getChar miseEnBouche mystere exec0fin exec5 multipleFils mystereGraphviz exempleSwitch backup
 
 # -Wall: Enable a set of warning, actually not all.
 # -W: Enable extra warning, it's advised to use -Wextra instead which has the same meaning
@@ -82,14 +82,14 @@ mystereGraphviz: mystereGraphviz.c
 	@$(CC) $(CFLAGS) $^ -o $@
 	@grep -xq "$@" .gitignore 2>> /dev/null || echo $@ >> .gitignore
 
-exempleGuibSwitch: exempleGuibSwitch.c
+exempleSwitch: exempleSwitch.c
 	@$(CC) $(CFLAGS) $^ -o $@
 	@grep -xq "$@" .gitignore 2>> /dev/null || echo $@ >> .gitignore
 
 .PHONY: clean mrproper backup
 
 clean:
-	@rm -rf exec0 execAvecChemin execvp0 getChar miseEnBouche mystere exec0fin exec5 multipleFils mystereGraphviz exempleGuibSwitch 2> /dev/null
+	@rm -rf exec0 execAvecChemin execvp0 getChar miseEnBouche mystere exec0fin exec5 multipleFils mystereGraphviz exempleSwitch 2> /dev/null
 
 mrproper: clean
 
